@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIMtegration - Portal</title>
+    <style>
+        /* --- Fonts and Base Styles --- */
+        @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F8F9FA;
+            overflow-x: hidden; /* Prevents horizontal scroll */
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* --- Main Container --- */
+        .portal-container {
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Secret Keyboard Container (NO BACKGROUND) --- */
+        .titulo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        /* --- Keyboard Letter Style (NARROWER) --- */
+        .item-letra {
+            font-family: "Acme", sans-serif;
+            color: #FFFFFF;
+            border-radius: 8px;
+            width: 50px;  /* Reduced width */
+            height: 60px; /* Adjusted height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 3px;
+            font-size: 1.6em; /* Adjusted font size */
+            font-weight: bold;
+            background: linear-gradient(145deg, #4A90E2, #357ABD);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .item-letra:hover {
+            transform: translateY(-5px) scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Rest of Page Styles --- */
+        .descripcion {
+            color: #6c757d;
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: -10px auto 30px auto;
+            line-height: 1.6;
+        }
+
+        .portal-container h2 {
+            color: #556270;
+            font-weight: 300;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .botones-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .panel-item {
+            font-family: "Acme", sans-serif;
+            color: #FFFFFF;
+            font-size: 16px;
+            border-radius: 4px;
+            width: 350px;
+            height: 60px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .panel-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            filter: brightness(1.1);
+        }
+
+        .color-dwg { background-color: #38B2AC; }
+        .color-revit { background-color: #50E3C2; }
+        .color-reporte { background-color: #F5A623; }
+        .color-contacto { background-color: #4A90E2; }
+        .color-registro { background-color: #9B59B6; }
+
+        /* --- Responsiveness --- */
+        @media (max-width: 600px) {
+            .panel-item {
+                width: 90vw;
+                height: 55px;
+            }
+            .item-letra {
+                width: 8vw;
+                height: 10vw;
+                font-size: 1.3em;
+            }
+            .portal-container h2 {
+                font-size: 1.2em;
+            }
+            .descripcion {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="portal-container">
+        
+        <div class="titulo-container">
+            <div class="item-letra" data-letra="B" style="animation-delay: 0.0s;">B</div>
+            <div class="item-letra" data-letra="I" style="animation-delay: 0.05s;">I</div>
+            <div class="item-letra" data-letra="M" style="animation-delay: 0.1s;">M</div>
+            <div class="item-letra" data-letra="t" style="animation-delay: 0.15s;">t</div>
+            <div class="item-letra" data-letra="e" style="animation-delay: 0.2s;">e</div>
+            <div class="item-letra" data-letra="g" style="animation-delay: 0.25s;">g</div>
+            <div class="item-letra" data-letra="r" style="animation-delay: 0.3s;">r</div>
+            <div class="item-letra" data-letra="a" style="animation-delay: 0.35s;">a</div>
+            <div class="item-letra" data-letra="t" style="animation-delay: 0.4s;">t</div>
+            <div class="item-letra" data-letra="i" style="animation-delay: 0.45s;">i</div>
+            <div class="item-letra" data-letra="o" style="animation-delay: 0.5s;">o</div>
+            <div class="item-letra" data-letra="n" style="animation-delay: 0.55s;">n</div>
+        </div>
+
+        <p class="descripcion">
+            We create tools that connect teams, optimize workflows and enhance the synergy of BIM methodology with AUTOMATIZATIONS.
+        </p>
+        
+        <div class="botones-container">
+            <a href="#" class="panel-item color-dwg">Instructions</a>
+            <a href="https://script.google.com/macros/s/AKfycby9c0W1KN3Wc7fTRg75I2ESCRJdeyifv_BQm5VO_Wq3KIZjOK-K7i9jMj8m43wUa0BX/exec" class="panel-item color-revit">Login</a>
+            <a href="https://script.google.com/macros/s/AKfycbwr4o3yijV9j1rG6PjDT_5SE3sUSgJz0_hHPkqUeWIddULiikXCYZXHMqTPpr1c9zdg/exec" class="panel-item color-reporte">Register</a>
+            <a href="https://wa.me/573206962307" class="panel-item color-contacto">Contact and Support</a>
+        </div>
+
+    </main>
+
+</body>
+</html>
