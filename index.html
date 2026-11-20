@@ -196,6 +196,43 @@
         .modal-close-btn:hover {
             filter: brightness(1.08);
         }
+    
+        .construction-banner {
+            width: 350px;
+            max-width: 90vw;
+            margin: 0 auto 22px auto;
+            padding: 14px 18px;
+            border-radius: 6px;
+            background-color: #FEF3C7;
+            border: 1px solid #F59E0B;
+            color: #78350F;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .construction-banner strong {
+            font-family: "Acme", sans-serif;
+            display: block;
+            font-size: 1.15em;
+            letter-spacing: 0.02em;
+            margin-bottom: 4px;
+            color: #92400E;
+        }
+        .construction-banner span {
+            display: block;
+            font-size: 0.875em;
+            line-height: 1.4;
+        }
+        .panel-item.is-disabled {
+            opacity: 0.42;
+            cursor: not-allowed;
+            filter: grayscale(0.45);
+            box-shadow: none;
+        }
+        .panel-item.is-disabled:hover {
+            transform: none;
+            box-shadow: none;
+            filter: grayscale(0.45);
+        }
     </style>
 </head>
 <body>
@@ -221,10 +258,11 @@
             We create tools that connect teams, optimize workflows and enhance the synergy of BIM methodology with AUTOMATIZATIONS.
         </p>
         
+        <div class="construction-banner" role="status"><strong>Site under construction</strong><span>We are updating our system. Only Contact and Support is available right now.</span></div>
         <div class="botones-container">
-            <a href="#" id="instructions-btn" class="panel-item color-dwg">Instructions</a>
-            <a href="https://script.google.com/macros/s/AKfycby9c0W1KN3Wc7fTRg75I2ESCRJdeyifv_BQm5VO_Wq3KIZjOK-K7i9jMj8m43wUa0BX/exec" class="panel-item color-revit">Login</a>
-            <a href="https://script.google.com/macros/s/AKfycbwr4o3yijV9j1rG6PjDT_5SE3sUSgJz0_hHPkqUeWIddULiikXCYZXHMqTPpr1c9zdg/exec" class="panel-item color-reporte">Register</a>
+            <a href="#" class="panel-item color-dwg is-disabled" aria-disabled="true" tabindex="-1">Instructions</a>
+            <a href="#" data-href="https://script.google.com/macros/s/AKfycby9c0W1KN3Wc7fTRg75I2ESCRJdeyifv_BQm5VO_Wq3KIZjOK-K7i9jMj8m43wUa0BX/exec" class="panel-item color-revit is-disabled" aria-disabled="true" tabindex="-1">Login</a>
+            <a href="#" data-href="https://script.google.com/macros/s/AKfycbwr4o3yijV9j1rG6PjDT_5SE3sUSgJz0_hHPkqUeWIddULiikXCYZXHMqTPpr1c9zdg/exec" class="panel-item color-reporte is-disabled" aria-disabled="true" tabindex="-1">Register</a>
             <a href="https://wa.me/573206962307" class="panel-item color-contacto">Contact and Support</a>
         </div>
 
@@ -258,6 +296,16 @@
             });
             document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape') closeModal();
+            });
+        })();
+    </script>
+
+    <script>
+        (function () {
+            document.querySelectorAll('.panel-item.is-disabled').forEach(function (el) {
+                el.addEventListener('click', function (ev) {
+                    ev.preventDefault();
+                });
             });
         })();
     </script>
